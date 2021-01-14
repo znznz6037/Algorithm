@@ -47,7 +47,8 @@ public class BoardCover {
             int C = Integer.parseInt(br.readLine());
             for(int i = 0; i < C; i++) {
                 String[] input = br.readLine().split(" ");
-                int H = Integer.parseInt(input[0]), W = Integer.parseInt(input[1]);
+                H = Integer.parseInt(input[0]);
+                W = Integer.parseInt(input[1]);
                 int[][] map = new int[H][W];
                 for(int row = 0; row < H; row++) {
                     String arr = br.readLine();
