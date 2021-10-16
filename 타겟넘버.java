@@ -30,3 +30,27 @@ class Solution {
         return result;
     }
 }
+
+/* DFS 풀이 추가
+import java.util.*;
+
+class Solution {
+    static int answer = 0;
+    public int solution(int[] numbers, int target) {       
+        DFS(numbers, target, 0, 0, 0);
+        return answer;
+    }
+    
+    static void DFS(int[] numbers, int target, int idx, int sum, int cnt) {
+        if(cnt == numbers.length) {
+            if(sum == target) {
+                answer++;
+            }    
+            return;
+        }
+        
+        DFS(numbers, target, idx + 1, sum + numbers[idx], cnt + 1);
+        DFS(numbers, target, idx + 1, sum - numbers[idx], cnt + 1);   
+    }
+}
+*/
