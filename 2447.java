@@ -1,12 +1,12 @@
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
 public class MakeStar {
     static char[][] stars;
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int N = sc.nextInt();
-        sc.close();
+    public static void main(String[] args) throws Exception {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int N = Integer.parseInt(br.readLine());
 
         stars = new char[N][N];
         recursion(N, 0, 0, false);
@@ -46,3 +46,4 @@ public class MakeStar {
         }
     }
 }
+
