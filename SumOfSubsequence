@@ -1,0 +1,35 @@
+import java.util.*;
+
+class Solution {
+    public int[] solution(int[] sequence, int k) {
+        int sum = 0;
+        int end = 0;
+        List<int[]> answerList = new ArrayList<>();
+        
+        for(int start = 0; start < sequence.length; start++) {
+            if(sequence[start] == k) return new int[] {start, start};
+            
+            while(sum < k && end < sequence.length) {
+                sum += sequence[end];
+                end++;
+            }
+            
+            if(sum == k) answerList.add(new int[]{start, end - 1});
+            sum -= sequence[start];
+        }
+        
+        answerList.sort(new Comparator<int[]>() {
+            public int compare(int[] a, int[] b) {
+                int aLength = a[1] - a[0];
+                int bLength = b[1] - b[0];
+                if(aLength == bLength) {
+                    return a[0] - b[0];
+                }
+                
+                return aLength - bLength;
+            }
+        });
+        
+        return answerList.get(0);
+    }
+}
